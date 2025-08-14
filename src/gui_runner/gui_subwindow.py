@@ -227,7 +227,7 @@ class SubWindow:
                     param_frame.add_btn = add_btn
                     param_frame.remove_btn = remove_btn
                     
-                elif param["type"] == "file" or param["type"] == "directory":
+                elif param["type"] == "file" or param["type"] == "directory" or param["type"] == "save":
                     # 文件/目录路径参数
                     path_frame = ttk.Frame(param_frame)
                     path_frame.pack(fill=tk.X, expand=True, side="left")
@@ -235,7 +235,9 @@ class SubWindow:
                     entry = ttk.Entry(path_frame)
                     entry.pack(side="left", fill=tk.X, expand=True, padx=(0,5))
                     
-                    browse_text = (self.ud.get("select_directory") if param["type"] == "directory" else self.ud.get("select_file"))
+                    browse_text = (self.ud.get("select_directory") if param["type"] == "directory" else (
+                        self.ud.get("select_file") if param["type"] == "file" else self.ud.get("save_file"))
+                    )
                     browse_btn = ttk.Button(
                         path_frame, 
                         text=browse_text,
@@ -420,10 +422,17 @@ class SubWindow:
             # 添加"所有文件"选项
             filetypes.append(("*.*", "*.*"))
             
-            path = filedialog.askopenfilename(
-                title=self.ud.get("select_file"),
-                filetypes=filetypes
-            )
+            if param["type"] == "file":
+                path = filedialog.askopenfilename(
+                    title=self.ud.get("select_file"),
+                    filetypes=filetypes
+                )
+            else: # param["type"] == "save"
+                path = filedialog.asksaveasfilename(
+                    title=self.ud.get("select_file"),
+                    filetypes=filetypes,
+                    defaultextension=filetypes[0][1]
+                )
         
         if path:
             entry_widget.delete(0, tk.END)

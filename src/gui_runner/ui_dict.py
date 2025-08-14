@@ -35,6 +35,7 @@ class UiDictionary:
             "execution_failure": "Task failed! Exit code: {0} Duration: {1}",
             "execution_error": "An error occurred during execution: {0}",
             "select_file": "Select File",
+            "save_file": "Save File",
             "select_directory": "Select Directory",
             "config_file_label": "Configuration File",
             "load_success": "Configuration loaded successfully!",

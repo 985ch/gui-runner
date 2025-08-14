@@ -44,7 +44,7 @@ pip install gui-runner
     * Each category can contain multiple function items (see examples)
 2. Configuring parameter interfaces:
     * Create JSON-formatted UI configuration files
-    * Supported parameter types: ```boolean```, ```choice```, ```array```, ```file```, ```directory```, ```string```, ```number```, ```integer```
+    * Supported parameter types: ```boolean```, ```choice```, ```array```, ```file```, ```directory```, ```save```, ```string```, ```number```, ```integer```
     * Supports parameter dependencies
 ## Configuration File Formats
 ### Main Configuration (```config.json```)

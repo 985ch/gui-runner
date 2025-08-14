@@ -45,7 +45,7 @@ pip install gui-runner
     * 每个分类配置下可以添加多个功能项（参考示例）
 2. 配置参数界面
     * 创建JSON格式的界面配置文件（参考示例）
-    * 支持参数类型：boolean, choice, array, file, directory, string, number, integer
+    * 支持参数类型：boolean, choice, array, file, directory, save, string, number, integer
     * 支持参数依赖关系
 ## 配置文件格式
 ### 主配置文件（config.json）
